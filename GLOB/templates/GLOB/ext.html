@@ -1,0 +1,55 @@
+{% extends 'GLOB/post.html' %}
+{% block content %}
+{% if request.session.username %}
+<center>
+<form class="reply-input-template" method="post" action="/post/{{ post.id }}/comment">
+    {% csrf_token %}
+  <div class="reply-input container">
+    <textarea name="comment" cols="80" class="cmnt-input" placeholder="Add a comment..."></textarea>
+      <br>
+    <button class="bu-primary" style="background-color: #008CBA;border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;">SEND</button>
+  </div>
+</form>
+</center>
+{% endif %}
+
+<section >
+  <div class="container my-5 py-5">
+    <div class="row d-flex justify-content-center">
+
+      <div class="col-md-12 col-lg-10">
+        <div class="card text-dark">
+        {% for comm in comments %}
+          <div class="card-body p-4" style="margin:30px;border: 2px solid blueviolet;border-radius: 5px;">
+            <div class="d-flex flex-start" style='padding: 10px'>
+              <div>
+                <h3 class="fw-bold mb-1">{{ comm.username }}</h3>
+                <div class="d-flex align-items-center mb-3">
+                  <p class="mb-0">
+                    {{ comm.date }}
+                  </p>
+                <h2>
+                    {{ comm.comment}}
+                </h2>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+    <hr style="width:50%;text-align:left;margin-left:0" />
+    {% endfor %}
+    </div>
+  </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

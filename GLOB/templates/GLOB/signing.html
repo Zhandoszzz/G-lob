@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glob</title>
+    <!--css here-->
+    <link rel="stylesheet" href="{% static 'GLOB/css/style.css' %}">
+    <!--icon & font css-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link href="https://fonts.googleapis.com/css2?family=Asul:wght@400;700&family=Varela+Round&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<section class="form_section">
+    <div class="container form_section-container">
+        <h2>Sign In</h2>
+        <form action="{% url 'login' %}" method="get">
+            <input name="username" type="text" placeholder="Username">
+            <input name="password" type="text" placeholder="Password">
+            <button type="submit" class= "btn" >Sign In</button>
+            <small>Don't have an account& <a href="{% url 'register' %}">Sign Up</a></small>
+        </form>
+    </div>
+</section>
+
+</body>
+</html>
